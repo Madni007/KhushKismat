@@ -88,17 +88,17 @@ export default Promotions;
 
 const styles = StyleSheet.create({
   promotionCard: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.white,
     padding: 10,
+    elevation:3,
     marginHorizontal: 10,
-    borderRadius: 8,
+    marginVertical:4,
+    borderRadius: 10,
     width: wp('90%'),
-    // overflow: 'hidden', // Clip image overflow
   },
   promotionImage: {
     width: wp('85%'),
     height: hp('25%'),
-    // backgroundColor: 'gray',
     borderRadius: 14,
     borderWidth: 6,
     borderColor: colors.DarkGreen,

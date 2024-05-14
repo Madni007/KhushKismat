@@ -158,7 +158,6 @@ function BottomTabNavigator() {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    position: 'absolute',
     backgroundColor: colors.white,
     borderBottomColor:colors.DarkGreen,
     borderBottomWidth:4,

@@ -5,7 +5,6 @@ import { LinearGradient } from 'react-native-linear-gradient';
 import { colors } from '../../utils/Colors';
 import { Svg, Path } from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
-import icons from '../../utils/icons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons'
 import { setleftDrawerOpen } from '../../redux/slices/commonSlice';
 import { useDispatch } from 'react-redux';
@@ -14,12 +13,6 @@ const Header = ({onPressSearch,onPressNotifications }) => {
   const navigation = useNavigation();
   const dispatch = useDispatch()
 
-  // const handlePresS=()=>{
-  //   navigation.navigate(ROUTES.SEARCH)
-  // };
-  // const handlePresN=()=>{
-  //   navigation.navigate(ROUTES.NOTIFICATIONS)
-  // };
   return (
     <LinearGradient
       colors={['#40916c','#40916c', '#00BA63']}
@@ -114,8 +107,6 @@ const styles = StyleSheet.create({
     top: -5,
     right:-7,
     backgroundColor: 'red',
-    // height: 12,
-    // width: 12,
     paddingVertical:0.4, paddingHorizontal:0.8,
     borderRadius: 5,
     justifyContent:'center',alignItems:'center'

@@ -49,15 +49,15 @@ const Search = ({ navigation }) => {
         <Text style={styles.sectionHeading}>Top Features</Text>
         <View style={styles.ContainerFeature}>
           <View style={styles.featureContainer}>
-            <Image source={icons.game} style={styles.featureIcon} />
+            {/* <Image source={icons.game} style={styles.featureIcon} /> */}
             <Text>Feat 1</Text>
           </View>
           <View style={styles.featureContainer}>
-            <Image source={icons.game} style={styles.featureIcon} />
+            {/* <Image source={icons.game} style={styles.featureIcon} /> */}
             <Text>Feat 2</Text>
           </View>
           <View style={styles.featureContainer}>
-            <Image source={icons.game} style={styles.featureIcon} />
+            {/* <Image source={icons.game} style={styles.featureIcon} /> */}
             <Text>Feat 3</Text>
           </View>
         </View>

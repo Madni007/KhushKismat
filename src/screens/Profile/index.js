@@ -14,12 +14,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GetUserProfile, setAuth } from '../../redux/slices/commonSlice';
 import Icon1 from 'react-native-vector-icons/MaterialIcons'
 
-// import { formateVals } from '../../utils/commonFunctions';
-// import Toast from 'react-native-simple-toast'
 import SafeLayout from '../layout/SafeLayout';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { colors } from '../../utils/Colors';
 import LinearGradient from 'react-native-linear-gradient';
+import AppHeader1 from '../../components/AppHeader1';
 
 const Profile = ({ navigation }) => {
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -53,21 +52,7 @@ const Profile = ({ navigation }) => {
   };
   return (
     <SafeAreaView style={{flex:1,}}>
-         <LinearGradient
-        colors={['#40916c','#40916c', '#00BA63']}  >
-        <View style={{
-                marginVertical: 20,
-                marginHorizontal: 25, flexDirection: "row", justifyContent: "center", alignItems: 'center'
-            }}>
-              <Text style={{fontSize:20,fontWeight:'800',color:colors.Tailwhite}}>My Profile</Text>
-          </View>
-            <View style={{display:'flex',alignItems:'flex-end',right:20,top:-40,height:2}}>
-                      <TouchableOpacity onPress={onPressNotifications}>
-                      <Icon1 name={'notifications'} size={20} color={colors.white} style={styles.icon} />
-                        <View style={styles.redDot}></View>
-                        </TouchableOpacity>
-            </View>
-            </LinearGradient>
+        <AppHeader1 title={'My Profile'} />
       <>
         <ScrollView style={styles.container}>
           {/* icon header */}

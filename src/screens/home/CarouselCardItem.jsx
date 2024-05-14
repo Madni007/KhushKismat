@@ -9,10 +9,7 @@ export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.74)
 const CarouselCardItem = ({ item, index, navigation }) => {
 
   const handlePress = () => {
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjj", item)
-    navigation.navigate('service-inside', {
-      step: 1,
-    })
+    navigation.navigate('', {})
   }
   return (
     <View>
@@ -20,12 +17,12 @@ const CarouselCardItem = ({ item, index, navigation }) => {
         <View style={styles.content}>
           <View>
             <Text style={styles.heading}>
-              Wall Painting Service
+              Hajj & Umrah Service
             </Text>
-            <Text style={{ fontFamily: "LatoRegular", fontSize: hp("1.7%") }}>Make your wall stylish</Text>
+            <Text style={{ fontFamily: "LatoRegular", fontSize: hp("1.7%"),width:wp('45%') }}>Make your journey beautiful And memorable with us</Text>
             <TouchableOpacity onPress={handlePress} style={styles.button}>
               <Text style={{ fontFamily: "LatoRegular", fontSize: RFPercentage(1.7), color: 'white' }}>
-                Book now
+                Get Offer
               </Text>
             </TouchableOpacity>
           </View>

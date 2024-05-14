@@ -8,7 +8,7 @@ const PromotionDetails = () => {
   const { imageURI, title, description } = useSelector((state) => state.promotion);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{flex:1,backgroundColor:colors.my_bg}}>
       <AppHeader title={'Package Details'} />
       <ScrollView>
         <View style={styles.container}>

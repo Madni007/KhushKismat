@@ -29,7 +29,8 @@ import Promotions from './src/screens/Promotions';
 import PromotionDetails from './src/screens/Promotions/promotiondetails';
 import Search from './src/screens/Search';
 import TransactionHistory from './src/screens/TransectionHistory';
-
+import DetailsHajjUmrah from './src/screens/FreeHajjUmrah/DetailsHajjUmrah';
+import StatusPage from './src/screens/Referral/StatusPage';
 const AppNavigation = () => {
   const Stack = createNativeStackNavigator();
   const { isAuth, appLoading } = useSelector((state) => state.common);
@@ -38,7 +39,7 @@ const AppNavigation = () => {
     < Stack.Navigator screenOptions={({ route, navigation }) => ({
       headerShown: false,
       gestureEnabled: false,
-    })} initialRouteName={isAuth ? "splash" : "splash"} >
+    })} initialRouteName={isAuth ? "splash" : "BottomTabNavigation"} >
       <>
         <Stack.Screen
           options={{ headerShown: false, gestureEnabled: false, }}
@@ -167,6 +168,16 @@ const AppNavigation = () => {
           options={{ headerShown: false }}
           name="TransactionHistory"
           component={TransactionHistory}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="DetailsHajjUmrah"
+          component={DetailsHajjUmrah}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="StatusPage"
+          component={StatusPage}
         />
 
       </>

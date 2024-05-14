@@ -85,7 +85,7 @@ const RenderRow = ({rowData}) => {
 const Help = () => {
   return (
     <View style={styles.container}>
-      <AppHeader title={'Help'} />
+      <AppHeader title={'Help'} bellIcon={false} />
       <View style={styles.svgContainer}>
         <Svg width={wp('100%')} height={hp('20%')} viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <Path d="M0 20H100V0L50 20H0Z" fill="#34d3eb" />
@@ -101,7 +101,7 @@ const Help = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor:colors.my_bg,
     flex: 1,
   },
   headerText: {

@@ -1,94 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState,useCallback } from 'react';
 import {
-  StyleSheet, TouchableOpacity, TouchableWithoutFeedback
-  , Text, Image, View, useWindowDimensions, Button, ScrollView, Dimensions,
+  StyleSheet , Text, View, useWindowDimensions, ScrollView
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-import Svg, { Path, Rect, Circle, G, Defs } from 'react-native-svg';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { colors } from '../../utils/Colors';
-import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {WinCardItemCur,WinCardItemPrev} from './WinCardItem';
+import AppHeader1 from '../../components/AppHeader1';
+import FirstRoute from './FirstRoute';
+import SecondRoute from './SecondRoute';
+import ThirdRoute from './ThirdRoute';
 
-
-const FirstRoute = () => (
-  <SafeAreaView style={{flex: 1}}>
-  <ScrollView>
-
-  <View style={{backgroundColor:colors.Tailwhite,alignItems:'center', }} >
-       <WinCardItemCur/>
-  </View>
-  </ScrollView>
-  </SafeAreaView>
-);
-
-const SecondRoute = () => (
-  <SafeAreaView style={{ flex: 1}}>
-  <ScrollView>
-
-  <View style={{backgroundColor:colors.Tailwhite,alignItems:'center', }} >
-    <WinCardItemPrev/>
-  </View>
-  </ScrollView>
-  </SafeAreaView>
-);
 
 
 const WinnerList = ({navigation}) => {
-  const onPressNotifications=()=>{
-    navigation.navigate('Notification')
-  };
-
+ 
   const layout = useWindowDimensions();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'first', title: 'Current Winners' },
-    { key: 'second', title: 'Previous Winners' },
+    { key: 'first', title: 'Current Wins' },
+    { key: 'second', title: 'Previous Wins' },
+    { key: 'third', title: 'Stream Hub' },
 
   ]);
 
-  const renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
-  });
+  const renderScene = useCallback(({ route }) => {
+    switch (route.key) {
+      case 'first':
+        return <FirstRoute navigation={navigation} />;
+        case 'second':
+          return <SecondRoute navigation={navigation} />;
+        case 'third':
+          return <ThirdRoute navigation={navigation} />;
+        default:
+            return null;
+        }
+      }, [navigation]);
 
   const renderTabBar = (props) => (
     <TabBar
 
       {...props}
-      lazy={true}
-      swipeEnabled={true}
-      animationEnabled={true}
-
-      indicatorStyle={{ backgroundColor: colors.DarkGreen, width: '30%', marginLeft: '8%', justifyContent: 'flex-start' }}
+      indicatorStyle={{ backgroundColor: colors.DarkGreen, width: '23%', marginLeft: '4%', justifyContent: 'flex-start' }}
       style={{ backgroundColor:colors.Tailwhite, height: 40 }}
-      labelStyle={{ color: 'black', fontFamily: "LatoRegular", fontSize: 14, width: '100%', fontWeight: '800', textTransform: 'none' }}
-
+      labelStyle={{ color: 'black', fontFamily: "LatoRegular", fontSize: RFPercentage(1.7), width: '100%', fontWeight: '800', textTransform: 'none' }}
+      pressColor='transparent'
       activeBackgroundColor='transparent'
     />
   );
   return (
 
   <SafeAreaView style={{ flex: 1 }}>
-     <LinearGradient
-        colors={['#40916c','#40916c', '#00BA63']}  >
-        <View style={{
-                marginVertical: 20,
-                marginHorizontal: 25, flexDirection: "row", justifyContent: "center", alignItems: 'center'
-            }}>
-              <Text style={{fontSize:18,fontWeight:'800',color:colors.Tailwhite}}>Winners List </Text>
-          </View>
-            <View style={{display:'flex',alignItems:'flex-end',right:20,top:-40,height:2}}>
-                      <TouchableOpacity onPress={onPressNotifications}>
-                      <Icon name={'bell'} size={16} style={styles.icon} />
-                        <View style={styles.redDot}></View>
-                        </TouchableOpacity>
-            </View>
-            </LinearGradient>
+    <AppHeader1 title={'Winners'} />
 
       <TabView
         navigationState={{ index, routes }}

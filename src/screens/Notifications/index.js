@@ -1,11 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { colors } from '../../utils/Colors';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/core';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import LinearGradient from 'react-native-linear-gradient';
-import { Svg, Path } from 'react-native-svg';
 import AppHeader from '../../components/AppHeader';
 const Notifications = () => {
   const navigation = useNavigation();

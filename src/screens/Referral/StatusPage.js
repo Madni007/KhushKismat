@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity, Text, Button, SafeAreaView, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text, Button, SafeAreaView, ScrollView } from 'react-native';
 import { colors } from '../../utils/Colors';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import AppHeader from '../../components/AppHeader';
-const StatusPage = () => {
-    const totalSteps = 30;
-    const stepsPerRow = 6;
+import ReferralInfo from './ReferralInfo';
+const StatusPage = ({navigation}) => {
+    const totalSteps = 35;
+    const stepsPerRow = 7;
     const [activeStep, setActiveStep] = useState(1);
   
     const renderSteps = () => {
@@ -54,18 +55,18 @@ const StatusPage = () => {
     };
   
   return (
-    <SafeAreaView>
-     <AppHeader title={'Status'}/>
-    <ScrollView>
-    <View style={{backgroundColor:colors.Tailwhite,flex:1}}>
-      <View style={{ margin: 30, borderRadius: 20, backgroundColor: 'white', elevation: 5 }}>
+    <SafeAreaView style={{backgroundColor:colors.my_bg,flex:1}}>
+     <AppHeader title={'Status'} bellIcon={false}/>
+      <View style={{ marginHorizontal: 25,marginVertical:5, borderRadius: 20, backgroundColor: 'white', elevation: 5 }}>
         <View style={styles.container}>
           {renderSteps()}
           <Button title="Next" onPress={() => setActiveStep((prevStep) => Math.min(prevStep + 1, totalSteps))} style={styles.nextButton} />
         </View>
       </View>
-    </View>
-    <View style={{height:hp('20%')}}></View>
+    <ScrollView>
+      <View>
+       <ReferralInfo />
+      </View>
     </ScrollView>
   </SafeAreaView>
   )
@@ -101,4 +102,5 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 12,
       },
+     
 })

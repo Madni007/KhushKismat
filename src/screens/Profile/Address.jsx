@@ -102,7 +102,7 @@ const Address = ({ navigation }) => {
             {/* Button Section   */}
             <View style={{ width: wp('100%'), alignSelf: 'center', backgroundColor: colors.Tailwhite }}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate(ROUTES.MAPSCREEN)}
+                    onPress={() =>console.log('Map screen')}
                     style={styles.button}>
                     <Text style={{ fontFamily: "LatoRegular", fontSize: RFPercentage(2.2), color: 'white' }}>
                         Add New Address
