@@ -35,7 +35,7 @@ const WinCardItem = ({WinnerData }) => {
         <View style={styles.expandedContent}>
           <Image source={{ uri: item.imageUri }} style={styles.image} />
           <View style={styles.Playbtn}>
-          <Icon name={'play'} color={colors.my_gray} size={24} />
+          <Icon name={'youtube'} color={colors.my_gray} size={32} />
           </View>
         </View>
       )}
